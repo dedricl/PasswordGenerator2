@@ -1,0 +1,74 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+
+
+}
+
+
+
+
+
+<div class="text-center">
+
+    <h1 class="display-4 m-4, mb-5">Welcome</h1>
+    <form>
+
+        <!-- Checkbox -->
+        
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+            <label class="form-check-label" for="inlineCheckbox1">Six Characters</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
+            <label class="form-check-label" for="inlineCheckbox2">Eight Characters</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
+            <label class="form-check-label" for="inlineCheckbox3">Ten Characters</label>
+        </div>
+
+
+
+
+        <!-- Submit button -->
+        <button class="btn btn-primary btn-block mb-4 mt-4" id="myBtn" onclick="passwordGenerator()">Generate Password</button>
+    </form>
+    <script>
+        function passwordGenerator() {
+            let checkBox1 = document.getElementById("inlineCheckbox1");
+            let checkBox3 = document.getElementById("inlineCheckbox3");
+            
+
+            
+            if (checkBox1.checked) {
+               
+                passwordLength(6);
+            }
+           else if(checkBox3.checked){
+                passwordLength(10);
+            }
+            else {
+                passwordLength(8);
+            }
+            
+        }
+
+        function passwordLength(len) {
+            let newPass = [];
+            for (var i = 0; i < len; i++) {
+                newPass.push(String.fromCharCode(Math.floor(Math.random() * 26) + 65));
+            }
+            return alert("Generate Password is: " + newPass.join(""));
+        }
+
+        
+
+    </script>
+</div>
+
+
+   
+
